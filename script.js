@@ -5,9 +5,12 @@ var generateBtn = document.querySelector("#generate");
 function generatePassword() {
   // get the number of caracters the user want the password to have
   do {
-    numberOfLetters = prompt("How many caracters do you want in your password. Passwords can only be between 8 and 128 caracters long.");
+    var numberOfLetters = prompt("How many caracters do you want in your password. Passwords can only be between 8 and 128 caracters long.");
   }while (numberOfLetters < 8 || numberOfLetters > 128)
+  wantCapitalLetter = confirm("Do you want capital letters.");
+  wantLowerCaseLetter = confirm("Do you want lower case letters.");
   console.log(numberOfLetters);
+  console.log(wantCapitalLetter);
 }
 function writePassword() {
   var password = generatePassword();
