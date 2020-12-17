@@ -7,14 +7,21 @@ function generatePassword() {
   do {
     var numberOfLetters = prompt("How many caracters do you want in your password. Passwords can only be between 8 and 128 caracters long.");
   }while (numberOfLetters < 8 || numberOfLetters > 128)
-  // Askt user if they want any upper case letters in their password
+  // Ask user if they want any upper case letters in their password
   var wantUpperCaseLetter = confirm("Do you want upper case letters?");
-  // Askt user if they want any lower case letters in their password
+  // Ask user if they want any lower case letters in their password
   var wantLowerCaseLetter = confirm("Do you want lower case letters?");
-  // Askt user if they want any numbers in their password
+  // Ask user if they want any numbers in their password
   var wantNumber = confirm("Do you want numbers?");
-  // Askt user if they want any special characters in their password
+  // Ask user if they want any special characters in their password
   var wantSpecialChar = confirm("Do you want special characters?")
+  // check if user didn't pick any criteria
+  if(wantUpperCaseLetter || wantLowerCaseLetter || wantNumber || wantSpecialChar){
+    return "ok";
+  }
+  else{
+    alert("Cannot complete task.")
+  }
   console.log(numberOfLetters);
   console.log(wantUpperCaseLetter);
   console.log(wantLowerCaseLetter);
