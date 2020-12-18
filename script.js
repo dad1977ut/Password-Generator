@@ -41,11 +41,19 @@ function generatePassword() {
   console.log(randomNumArr);
   // check if user didn't pick any criteria
   if(wantUpperCaseLetter || wantLowerCaseLetter || wantNumber || wantSpecialChar){
-
+  // create random character
      for (var i = 0 ; i < numberOfLetters ; i++) {
        var randomNum = randomNumArr[Math.floor(Math.random() * randomNumArr.length)]
-       console.log(randomNum);
+       if(randomNum === 1){
        storePass = storePass + randomCharacter(upperArr);
+       }else if(randomNum === 2){
+        storePass = storePass + randomCharacter(lowArr);
+       }else if(randomNum === 3){
+        storePass = storePass + randomCharacter(numArr);
+       }else if(randomNum === 4){
+        storePass = storePass + randomCharacter(specialArr);
+       }
+      
      }
       return storePass 
 
