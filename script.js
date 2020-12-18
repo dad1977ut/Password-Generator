@@ -2,6 +2,10 @@
 var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
+function randomCharacter(arr) {
+  var randomNum = Math.floor(Math.random() * arr.length);
+  return arr[randomNum];
+}
 function generatePassword() {
   // get the number of caracters the user want the password to have
   do {
@@ -17,10 +21,12 @@ function generatePassword() {
   var wantSpecialChar = confirm("Do you want special characters?")
   // check if user didn't pick any criteria
   if(wantUpperCaseLetter || wantLowerCaseLetter || wantNumber || wantSpecialChar){
-    return "ok";
+    var numArr = [0,1,2,3,4,5,6,7,8,9]
+     return randomCharacter(numArr);
+    
   }
   else{
-    alert("Cannot complete task.")
+    alert("Cannot complete task. You needs to select at least one criteria.")
   }
   console.log(numberOfLetters);
   console.log(wantUpperCaseLetter);
