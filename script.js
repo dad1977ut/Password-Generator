@@ -8,9 +8,13 @@ function randomCharacter(arr) {
 }
 function generatePassword() {
   var upperArr = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
-  var lowArr = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
+  var lowerArr = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
   var numArr = ["0","1","2","3","4","5","6","7","8","9"]
   var specialArr =["!","@","#","$","%","^","&","*","(",")"]
+  var noUpper = true
+  var noLower = true
+  var noNum = true
+  var noSpecial = true
   var storePass =" "
   var randomNumArr = []
   // get the number of caracters the user want the password to have
@@ -45,13 +49,17 @@ function generatePassword() {
      for (var i = 0 ; i < numberOfLetters - 4 ; i++) {
        var randomNum = randomNumArr[Math.floor(Math.random() * randomNumArr.length)]
        if(randomNum === 1){
-       storePass = storePass + randomCharacter(upperArr);
+        storePass = storePass + randomCharacter(upperArr);
+        noUpper = false;
        }else if(randomNum === 2){
-        storePass = storePass + randomCharacter(lowArr);
+        storePass = storePass + randomCharacter(lowerArr);
+        noLower = false;
        }else if(randomNum === 3){
         storePass = storePass + randomCharacter(numArr);
+        noNum = false;
        }else if(randomNum === 4){
         storePass = storePass + randomCharacter(specialArr);
+        noSpecial = false;
        }
       
      }
@@ -60,7 +68,7 @@ function generatePassword() {
       if(randomNum === 1){
       storePass = storePass + randomCharacter(upperArr);
       }else if(randomNum === 2){
-       storePass = storePass + randomCharacter(lowArr);
+       storePass = storePass + randomCharacter(lowerArr);
       }else if(randomNum === 3){
        storePass = storePass + randomCharacter(numArr);
       }else if(randomNum === 4){
@@ -68,6 +76,10 @@ function generatePassword() {
       }
      
     }
+    console.log(noUpper);
+    console.log(noLower);
+    console.log(noNum);
+    console.log(noSpecial);
       return storePass 
 
   }
