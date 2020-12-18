@@ -7,6 +7,11 @@ function randomCharacter(arr) {
   return arr[randomNum];
 }
 function generatePassword() {
+  var upperArr = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
+  var lowArr = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
+  var numArr = ["0","1","2","3","4","5","6","7","8","9"]
+  var specialArr =["!","@","#","$","%","^","&","*","(",")"]
+  var storePass =" "
   var randomNumArr = []
   // get the number of caracters the user want the password to have
   do {
@@ -20,6 +25,7 @@ function generatePassword() {
   var wantNumber = confirm("Do you want numbers?");
   // Ask user if they want any special characters in their password
   var wantSpecialChar = confirm("Do you want special characters?")
+  // Make an array of base on the choices user pick
   if(wantUpperCaseLetter){
     randomNumArr.push(1);
   }
@@ -35,13 +41,14 @@ function generatePassword() {
   console.log(randomNumArr);
   // check if user didn't pick any criteria
   if(wantUpperCaseLetter || wantLowerCaseLetter || wantNumber || wantSpecialChar){
-    var numArr = ["0","1","2","3","4","5","6","7","8","9"]
-    var storePass =" "
+
      for (var i = 0 ; i < numberOfLetters ; i++) {
-       storePass = storePass + randomCharacter(numArr);
+       var randomNum = randomNumArr[Math.floor(Math.random() * randomNumArr.length)]
+       console.log(randomNum);
+       storePass = storePass + randomCharacter(upperArr);
      }
       return storePass 
-    
+
   }
   else{
     alert("Cannot complete task. You needs to select at least one criteria.")
