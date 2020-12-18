@@ -7,6 +7,7 @@ function randomCharacter(arr) {
   return arr[randomNum];
 }
 function generatePassword() {
+  var randomNumArr = []
   // get the number of caracters the user want the password to have
   do {
     var numberOfLetters = prompt("How many caracters do you want in your password. Passwords can only be between 8 and 128 caracters long.");
@@ -19,10 +20,27 @@ function generatePassword() {
   var wantNumber = confirm("Do you want numbers?");
   // Ask user if they want any special characters in their password
   var wantSpecialChar = confirm("Do you want special characters?")
+  if(wantUpperCaseLetter){
+    randomNumArr.push(1);
+  }
+  if(wantLowerCaseLetter){
+    randomNumArr.push(2);
+  }
+  if(wantNumber){
+    randomNumArr.push(3);
+  }
+  if(wantSpecialChar){
+    randomNumArr.push(4);
+  }
+  console.log(randomNumArr);
   // check if user didn't pick any criteria
   if(wantUpperCaseLetter || wantLowerCaseLetter || wantNumber || wantSpecialChar){
-    var numArr = [0,1,2,3,4,5,6,7,8,9]
-     return randomCharacter(numArr);
+    var numArr = ["0","1","2","3","4","5","6","7","8","9"]
+    var storePass =" "
+     for (var i = 0 ; i < numberOfLetters ; i++) {
+       storePass = storePass + randomCharacter(numArr);
+     }
+      return storePass 
     
   }
   else{
