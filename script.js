@@ -98,6 +98,7 @@ function generatePassword() {
   else{
     alert("Cannot complete task. You needs to select at least one criteria.")
   }
+}
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
