@@ -62,27 +62,23 @@ function generatePassword() {
         storePass = storePass + randomCharacter(specialArr);
         noSpecial = false;
        }
-      
+
      }
      if(wantUpperCaseLetter && noUpper){
       storePass = storePass + randomCharacter(upperArr);
       remainChar = remainChar - 1;
-      console.log("check1");
     }
     if(wantLowerCaseLetter && noLower){
       storePass = storePass + randomCharacter(lowerArr);
       remainChar = remainChar - 1;
-      console.log("check2");
     }
     if(wantNumber && noNum){
       storePass = storePass + randomCharacter(numArr);
       remainChar = remainChar - 1;
-      console.log("check3");
     }
     if(wantSpecialChar && noSpecial){
       storePass = storePass + randomCharacter(specialArr);
       remainChar = remainChar - 1;
-      console.log("check4");
     }
      for (i= 0;remainChar - i > 0; i++) {
       var randomNum = randomNumArr[Math.floor(Math.random() * randomNumArr.length)]
@@ -97,12 +93,6 @@ function generatePassword() {
       }
      
     }
-    console.log(noUpper);
-    console.log(noLower);
-    console.log(noNum);
-    console.log(noSpecial);
-      return storePass 
-
   }
   else{
     alert("Cannot complete task. You needs to select at least one criteria.")
