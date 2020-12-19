@@ -46,7 +46,7 @@ function generatePassword() {
   console.log(randomNumArr);
   // check if user didn't pick any criteria
   if(wantUpperCaseLetter || wantLowerCaseLetter || wantNumber || wantSpecialChar){
-  // create random character
+  // create random characters
      for (var i = 0 ; i < numberOfLetters - 4 ; i++) {
        var randomNum = randomNumArr[Math.floor(Math.random() * randomNumArr.length)]
        if(randomNum === 1){
@@ -93,6 +93,7 @@ function generatePassword() {
       }
      
     }
+    return storePass;
   }
   else{
     alert("Cannot complete task. You needs to select at least one criteria.")
