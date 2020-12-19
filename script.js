@@ -7,19 +7,20 @@ function randomCharacter(arr) {
   return arr[randomNum];
 }
 function generatePassword() {
-  var upperArr = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
-  var lowerArr = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
-  var numArr = ["0","1","2","3","4","5","6","7","8","9"]
-  var specialArr =["!","@","#","$","%","^","&","*","(",")"]
-  var noUpper = true
-  var noLower = true
-  var noNum = true
-  var noSpecial = true
-  var storePass =" "
-  var randomNumArr = []
+  var upperArr = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
+  var lowerArr = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
+  var numArr = ["0","1","2","3","4","5","6","7","8","9"];
+  var specialArr =["!","@","#","$","%","^","&","*","(",")"];
+  var noUpper = true;
+  var noLower = true;
+  var noNum = true;
+  var noSpecial = true;
+  var remainChar = 4;
+  var storePass =" ";
+  var randomNumArr = [];
   // get the number of caracters the user want the password to have
   do {
-    var numberOfLetters = prompt("How many caracters do you want in your password. Passwords can only be between 8 and 128 caracters long.");
+    var numberOfLetters = prompt("How many characters do you want in your password. Passwords can only be between 8 and 128 caracters long.");
   }while (numberOfLetters < 8 || numberOfLetters > 128)
   // Ask user if they want any upper case letters in their password
   var wantUpperCaseLetter = confirm("Do you want upper case letters?");
@@ -63,7 +64,27 @@ function generatePassword() {
        }
       
      }
-     for (var i = 0 ; i < 4 ; i++) {
+     if(wantUpperCaseLetter && noUpper){
+      storePass = storePass + randomCharacter(upperArr);
+      remainChar = remainChar - 1;
+      console.log("check1");
+    }
+    if(wantLowerCaseLetter && noLower){
+      storePass = storePass + randomCharacter(lowerArr);
+      remainChar = remainChar - 1;
+      console.log("check2");
+    }
+    if(wantNumber && noNum){
+      storePass = storePass + randomCharacter(numArr);
+      remainChar = remainChar - 1;
+      console.log("check3");
+    }
+    if(wantSpecialChar && noSpecial){
+      storePass = storePass + randomCharacter(specialArr);
+      remainChar = remainChar - 1;
+      console.log("check4");
+    }
+     for (i= 0;remainChar - i > 0; i++) {
       var randomNum = randomNumArr[Math.floor(Math.random() * randomNumArr.length)]
       if(randomNum === 1){
       storePass = storePass + randomCharacter(upperArr);
