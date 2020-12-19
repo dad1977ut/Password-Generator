@@ -98,12 +98,6 @@ function generatePassword() {
   else{
     alert("Cannot complete task. You needs to select at least one criteria.")
   }
-  console.log(numberOfLetters);
-  console.log(wantUpperCaseLetter);
-  console.log(wantLowerCaseLetter);
-  console.log(wantNumber);
-  console.log(wantSpecialChar);
-}
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
